@@ -1,0 +1,13 @@
+
+<div class="question">
+  <h2>New Question</h2>
+  <hr>
+  <form #form="ngForm" (submit)="addQuestion()">
+    Question<textarea [(ngModel)]="question.text" required minlength="15" name="text" rows="3" cols="20"></textarea><br>
+    Correct Answer<input [(ngModel)]="question.answer" required type="text" name="answer" value=""><br>
+    Fake Answer 1<input [(ngModel)]="question.fake1" required type="text" name="fake1" value=""><br>
+    Fake Answer 2<input [(ngModel)]="question.fake2" required type="text" name="fake2" value=""><br>
+    <input [disabled]="!form.valid" type="submit" name="submit" value="Add Question"><br>
+    <button (click)="cancel()" type="button" name="button">Cancel</button>
+  </form>
+</div>

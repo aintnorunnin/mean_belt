@@ -1,0 +1,30 @@
+<form *ngIf="flag" #form="ngForm"(submit)="signIn(user.name)">
+  Please sign in with name: <input required [(ngModel)]="user.name" type="text" name="name" value="">
+  <input [disabled]="!form.valid" type="submit" name="submit" value="Sign In">
+</form>
+
+<div *ngIf="!flag" class="home">
+  <div class="play">
+    <button (click)="play()" type="button" name="button">Play</button><br>
+    Click the button above to start the trivia game
+  </div>
+  <br>
+  Search <input type="text" name="" value="">
+  <hr>
+  <table border=1>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Score</th>
+        <th>Percentage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let game of games; let idx = index ">
+        <td>{{game.user}}</td>
+        <td>{{game.score}} / 3</td>
+        <td>{{ game.percentage}}%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
